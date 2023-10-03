@@ -50,6 +50,7 @@ public class WeakCryptography extends Fragment {
     public static String md5Hash(String text) {
         StringBuilder stringBuilder = new StringBuilder();
         try {
+            SecretKeySpec secretKeySpec = new SecretKeySpec(KEY.getBytes(StandardCharsets.UTF_8), "AES");
             MessageDigest digest = MessageDigest.getInstance("MD5");
             digest.update(text.getBytes());
             byte[] messageDigest = digest.digest();
